@@ -1,40 +1,38 @@
 // Write your solution in this file!
 
 //Employee object
-let employee = {
-    name : "John",
-    streetAddress: "12 Broadway"
-};
+const employee = {
+    name: 'Sam',
+    streetAddress: '11 Broadway'
+}
 
 
 //using the spread operator
 function updateEmployeeWithKeyAndValue(obj,key,value){
-    
-    const newEmployee = {...obj};
-
-    newEmployee[key] = value;
-
-    return newEmployee;
-
+    const newObj = {...obj};
+    newObj[key] = value;
+    return newObj;
 }
 updateEmployeeWithKeyAndValue()
 
-const employee21 = updateEmployeeWithKeyAndValue(employee,"name","Mike"); 
+ 
 
 
 //destructive update
 function destructivelyUpdateEmployeeWithKeyAndValue(obj,key,value){
-    obj.key = value;
+    obj[key] = value;
     return obj;
 }
 destructivelyUpdateEmployeeWithKeyAndValue();
 
-const employee2 = destructivelyUpdateEmployeeWithKeyAndValue(employee,"Name","Sam");
+
 
 
 //undestructive delete
-function deleteFromEmployeeByKey(employee, key){
-    return Object.assign({}, delete employee.key);
+function deleteFromEmployeeByKey(obj, key){
+    const newObj = {...obj};
+    delete newObj[key];
+    return newObj;
 }
 deleteFromEmployeeByKey();
 
@@ -44,7 +42,8 @@ deleteFromEmployeeByKey();
 
 
 //destructive delete
-function destructivelyDeleteFromEmployeeByKey(employee, key){
-    return Object.assign(employee,delete employee[key]);
+function destructivelyDeleteFromEmployeeByKey(obj, key){
+    delete obj[key];
+    return obj;
 }
 destructivelyDeleteFromEmployeeByKey();
